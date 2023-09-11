@@ -15,7 +15,8 @@ function Periods({ setShowSideBar }) {
   return (
 <>
     <Container className="text-center my-5">
-      {PERIODS.map(({ label, value }) =>
+      {PERIODS.map(({ label, value }) => {
+      return (
         <Button
           className="mx-1"
           key={value}
@@ -23,17 +24,21 @@ function Periods({ setShowSideBar }) {
           active={selectedPeriod === value}
           onClick={() => dispatch(setSelectedPeriod(value))}
         >
-         {value} {label[activeEnergy]}
+        {value}
+        {label[activeEnergy]}
         </Button> 
+      )}
       )}
       <Button
         className="mx-3"
         variant="primary"
-        onClick={() => dispatch(setShowSideBar(true))}
+        onClick={() => setShowSideBar(true)}
       >Custom</Button>
     </Container>
     </>
+    
   )
 }
 
 export default Periods;
+
